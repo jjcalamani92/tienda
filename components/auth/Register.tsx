@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { AuthContext } from '../../src/context';
 import { useRouter } from 'next/router';
 import { signIn } from "next-auth/react";

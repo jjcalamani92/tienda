@@ -56,6 +56,8 @@ export const AuthProvider: FC = ({ children }) => {
 
   const loginUser = async (email: string, password: string): Promise<boolean> => {
     try {
+      // const { data } = await axios.post('https://cristinadevelopmentu.herokuapp.com/api/auth/login', { email, password })
+      // const { data } = await axios.post(`${process.env.APIU_URL}/api/auth/login`, { email, password })
       const { data } = await axios.post('https://cristinadevelopmentu.herokuapp.com/api/auth/login', { email, password })
       const { token, user } = data;
       Cookies.set('token', token);
@@ -69,8 +71,9 @@ export const AuthProvider: FC = ({ children }) => {
 
   const registerUser = async (username: string, email: string, password: string): Promise<{hasError: boolean; message ?: string} > => {
   try {
-    const user = await axios.post('https://cristinadevelopmentu.herokuapp.com/api/user', { username, email, password })
-    const { data } = user
+    // const { data } = await axios.post(`${process.env.APIU_URL}/api/user`, { username, email, password })
+
+    const {data} = await axios.post('https://cristinadevelopmentu.herokuapp.com/api/user', { username, email, password })
     dispatch({ type: '[Auth] - Register', payload: { _id: data._id, email: data.email, role: data.role } })
     return {
       hasError: false

@@ -68,6 +68,7 @@ export const FormAdd = () => {
   }
   const onSubmit = async (form: FormData) => {
     console.log(form)
+    // await axios.post(`${process.env.APIP_URL}/api/wear`, form)
     await axios.post('https://cristinadevelopmentp.herokuapp.com/api/wear', form)
     router.replace('/admin')
   }
@@ -80,10 +81,10 @@ export const FormAdd = () => {
         const formData = new FormData();
         formData.append('file', file);
         // console.log(file)
+        // const { data } = await axios.post(`${process.env.APIP_URL}/api/upload`, formData)
         const { data } = await axios.post('https://cristinadevelopmentp.herokuapp.com/api/upload', formData)
         // console.log(data)
         setValue('image', [...getValues('image'), data.url], { shouldValidate: true })
-        console.log(data.url)
       }
     } catch (error) {
       console.log({ error })
