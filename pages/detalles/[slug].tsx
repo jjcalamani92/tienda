@@ -23,7 +23,7 @@ const SlugPage: NextPage<Props> = ({ slug }) => {
 			title={"Choco - Stores"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-			<ProductOverviews05 product={data.wearBySlug} />
+			<ProductOverviews05 product={data.paintBySlug} />
 
 		</Layout>
 	);
@@ -33,8 +33,8 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 	const { data } = await client.query({
 		query: PRODUCTS
 	});
-	const paths = data.wears.map((wear: IProduct) => ({
-		params: { slug: wear.slug }
+	const paths = data.paints.map((paint: IProduct) => ({
+		params: { slug: paint.slug }
 	}));
 	return {
 		paths,

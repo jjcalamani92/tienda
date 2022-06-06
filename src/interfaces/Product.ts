@@ -1,4 +1,3 @@
-
 export interface IProduct {
 	_id: string;
 	name: string;
@@ -6,18 +5,12 @@ export interface IProduct {
 	image: string[];
 	description: string;
 	inStock: number;
-	sizes: string[];
 	slug: string;
 	category: string;
-	gender: string;
+	line: string;
 	price: number;
 	oldPrice: number;
-	color: string;
 	tags: string[];
-	client: string;
 	status: boolean;
 	site: string;
-
-	createdAt: string;
-	updatedAt: string;
 }

@@ -224,11 +224,11 @@ export const Heading01: FC<Props02> = ({ product }) => {
 };
 
 interface Props03 {
+	line: string | any;
 	category: string | any;
-	subCategory: string | any;
 }
 
-export const Heading02: FC<Props03> = ({ category, subCategory }) => {
+export const Heading02: FC<Props03> = ({ line, category }) => {
 	return (
 			<nav aria-label="Breadcrumb" className=" py-2 md:py-6">
 				<ol
@@ -237,9 +237,9 @@ export const Heading02: FC<Props03> = ({ category, subCategory }) => {
 				>
 					<li>
 						<div className="flex items-center">
-							<Link href={`/${slug(category)}`} passHref prefetch={false}>
+							<Link href={`/${slug(line)}`} passHref prefetch={false}>
 								<a className="mr-2 text-sm font-medium text-gray-900 capitalize">
-									{category}
+									{line}
 								</a>
 							</Link>
 
@@ -259,12 +259,12 @@ export const Heading02: FC<Props03> = ({ category, subCategory }) => {
 					<li>
 						<div className="flex items-center">
 							<Link
-								href={`/${slug(category)}/${slug(subCategory)}`}
+								href={`/${slug(line)}/${slug(category)}`}
 								passHref
 								prefetch={false}
 							>
 								<a className="mr-2 text-sm font-medium text-gray-900 capitalize">
-									{subCategory}
+									{category}
 								</a>
 							</Link>
 							<svg

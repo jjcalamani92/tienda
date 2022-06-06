@@ -33,6 +33,7 @@ export interface Section {
   category: string;
   section: string;
   name: string;
+  href: string;
   items: Item[];
 }
 

@@ -28,18 +28,18 @@ const navigation = {
 			name: "Tienda",
 			featured: [
 				{
-					name: "Los recién llegados",
+					name: "de fabrica",
 					href: "#",
 					imageSrc:
-						"https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
+						"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1651761142/pinturas/productos/poliuretano/181103052847z4_7500_x6krkq.png",
 					imageAlt:
 						"Models sitting back to back, wearing Basic Tee in black and bone."
 				},
 				{
-					name: "Camisetas básicas",
+					name: "Productos en descuento",
 					href: "#",
 					imageSrc:
-						"https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
+						"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1651761866/pinturas/productos/poliuretano/200221035708ultra-up-640_r4epkd.jpg",
 					imageAlt:
 						"Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
 				}
@@ -47,32 +47,13 @@ const navigation = {
 			sections: [
 				{
 					id: "mujer",
-					name: "Mujer",
+					name: "Linea Automotiva",
 					items: [
-						{ name: "chamarras", href: "/mujer/chamarras" },
-						{ name: "camisas", href: "/mujer/camisas" },
-						{ name: "poleras", href: "/mujer/poleras" },
-						{ name: "Explorar Todo", href: "#" }
-					]
-				},
-				{
-					id: "hombre",
-					name: "Hombre",
-					items: [
-						{ name: "chamarras", href: "/hombre/chamarras" },
-						{ name: "camisas", href: "/hombre/camisas" },
-						{ name: "poleras", href: "/hombre/poleras" },
-						{ name: "Explorar Todo", href: "#" }
-					]
-				},
-				{
-					id: "niño",
-					name: "Niño",
-					items: [
-						{ name: "chamarras", href: "/niño/chamarras" },
-						{ name: "camisas", href: "/niño/camisas" },
-						{ name: "poleras", href: "/niño/poleras" },
-						{ name: "Explorar Todo", href: "#" }
+						{ name: "poliuretano", href: "/linea-automotiva/poliuretano" },
+						{ name: "acrilico", href: "/linea-automotiva/acrilico" },
+						{ name: "gloss", href: "/linea-automotiva/gloss" },
+						{ name: "masilla", href: "/linea-automotiva/masilla" },
+						{ name: "primer", href: "/linea-automotiva/primer" }
 					]
 				}
 			]
@@ -80,6 +61,7 @@ const navigation = {
 	],
 	pages: [
 		{ name: "Categorias", href: "categorias" },
+		{ name: "Servicios", href: "servicios" },
 		{ name: "Contacto", href: "contacto" }
 	]
 };
@@ -342,7 +324,7 @@ export const Header = () => {
 										<span className="sr-only">Workflow</span>
 										<img
 											className="h-8 w-auto"
-											src="https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg"
+											src="https://res.cloudinary.com/dvcyhn0lj/image/upload/v1649541738/pinturas/PUNTO_COLORS_EXPRESS_CHOCO_yoygoy.png"
 											alt=""
 										/>
 									</a>
