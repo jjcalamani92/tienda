@@ -13,9 +13,7 @@ const AddProduct: NextPage<Props> = ({ slug }) => {
 			pageDescription="{`${product.description}`}"
 			imageFullUrl="{`${product.image[1]}`}"
 		>
-			{/* <FormikForm /> */}
 			<FormAdd />
-			{/* <FormProduct /> */}
 
 		</Layout>
 	);

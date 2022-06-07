@@ -182,22 +182,29 @@ export const Table02: FC<Props> = ({ products }) => {
                       </td>
                       <td className="pl-4">
                         <Link href={`/admin/productos/${product.slug}`} >
+                        <a>
                           <FontAwesomeIcon
                             className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
                             icon={faPenToSquare}
                           />
+                          </a>
                         </Link>
                         <div onClick={() => onDeleteData(product._id)} >
+                        <a>
                           <FontAwesomeIcon
                             className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
                             icon={faCircleMinus}
                           />
+                        </a>
                         </div>
                         <Link href={"#"} >
-                          <FontAwesomeIcon
-                            className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
-                            icon={faEye}
-                          />
+                          <a>
+                            
+                            <FontAwesomeIcon
+                              className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
+                              icon={faEye}
+                            />
+                          </a>
                         </Link>
 
                       </td>

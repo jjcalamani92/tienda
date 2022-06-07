@@ -1,12 +1,9 @@
 import { NextPage } from "next";
-import { useContext } from "react";
-import { Layout, Login } from "../../components";
+import { Layout } from "../../components";
 import { Table02 } from "../../components/Table";
 import { client } from "../../src/apollo";
-import { AuthContext } from "../../src/context";
-import { PRODUCT_UPDATE, PRODUCTS } from "../../src/gql/query";
-import { IProduct, Product } from "../../src/interfaces";
-import { useRouter } from 'next/router';
+import { PRODUCT_UPDATE } from "../../src/gql/query";
+import { IProduct } from "../../src/interfaces";
 interface Props {
 	paints: IProduct[];
 }

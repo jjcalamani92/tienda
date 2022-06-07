@@ -9,30 +9,31 @@ import {
 } from "../../../src/gql/query";
 import { client } from "../../../src/apollo";
 import { LayoutProductlist01 } from "../../../components/LayoutProductList01";
+import Heading01 from "../../../components/class/Heading";
+import React, { Component } from "react";
 
-interface Props {
-  paints: IProduct[];
-}
 
-const SubCategoryPage: NextPage<Props> = ({ paints }) => {
+
+const CategoryPage = () => {
   const router = useRouter();
   const { line, category } = router.query;
-  console.log({line, category})
   const { loading, error, data } = useQuery(PRODUCTS_BY_LINE_AND_BY_CATEGORY, {
     variables: { line: `${line}`, category: `${category}` },
   });
   if (loading) return <Spinner01 />;
   console.log(data)
   return (
-    <Layout
+    <>  
+      <Layout
       title={"Choco - Stores"}
       pageDescription={"Encuentra tu ropa favorita"}
     >
       <Heading02 line={line} category={category} />
+      <Heading01 line={`${line}`} category={`${category}`} />
       <LayoutProductlist01 products={data.paintByLineAndCategory} />
-      {/* <HeadingPrimary category={category} subCategory={subCategory} /> */}
-      {/* <LayoutProductlist products={data.wearByCategoryAndSubCategory} /> */}
     </Layout>
+    </>
+
   );
 };
 
@@ -59,4 +60,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default SubCategoryPage;
+export default CategoryPage;
+

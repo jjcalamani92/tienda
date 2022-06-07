@@ -18,7 +18,7 @@ import { Fragment, useContext, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCarAlt, faCartShopping, faSearch, faBars, faX, faRightToBracket, faArrowRightToBracket, faRightFromBracket, faFolder, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faCarAlt, faCartShopping, faSearch, faBars, faX, faRightToBracket, faArrowRightToBracket, faRightFromBracket, faFolder, faChartLine, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from "../src/context";
 
 const navigation = {
@@ -134,10 +134,13 @@ export const Header = () => {
 										onClick={() => setOpen(false)}
 									>
 										<span className="sr-only">Close menu</span>
-										<FontAwesomeIcon
-											className="h-6 w-6"
-											icon={faX}
-										/>
+										<a>
+											<FontAwesomeIcon
+												className="h-6 w-6"
+												icon={faX}
+											/>
+										</a>
+
 									</button>
 								</div>
 
@@ -346,10 +349,12 @@ export const Header = () => {
 								onClick={() => setOpen(true)}
 							>
 								<span className="sr-only">Open menu</span>
-								<FontAwesomeIcon
-									className="h-6 w-6"
-									icon={faBars}
-								/>
+								<a>
+									<FontAwesomeIcon
+										className="h-6 w-6"
+										icon={faBars}
+									/>
+								</a>
 							</button>
 
 							{/* Logo */}
@@ -562,7 +567,7 @@ export const Header = () => {
 													<span className="sr-only">Admin</span>
 													<FontAwesomeIcon
 														className="w-6 h-6"
-														icon={faChartLine}
+														icon={faFolderOpen}
 													/>
 												</a>
 											</div>

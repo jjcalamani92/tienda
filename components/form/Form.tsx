@@ -53,10 +53,9 @@ export const Form02: FC<Props> = ({ product }) => {
   }
 
   const onSubmit = async (form: FormData) => {
-    await axios.put(`https://cristinadevelopmentp.herokuapp.com/api/wear/${product._id}`, form)
+    await axios.put(`${process.env.APIP_URL}/api/paint/${product._id}`, form)
     router.replace('/admin')
   }
-
   const onFileSelected = async ({ target }: ChangeEvent<HTMLInputElement>) => {
     if (!target.files || target.files.length === 0) {
       return;
@@ -65,7 +64,7 @@ export const Form02: FC<Props> = ({ product }) => {
       for (const file of target.files) {
         const formData = new FormData();
         formData.append('file', file);
-        const { data } = await axios.post('https://cristinadevelopmentp.herokuapp.com/api/upload', formData)
+        const { data } = await axios.post(`${process.env.APIP_URL}/api/upload`, formData)
         setValue('image', [...getValues('image'), data.url], { shouldValidate: true })
         console.log(data.url)
       }

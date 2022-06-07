@@ -3,6 +3,7 @@ import {
 	Layout,
 	LayoutHome,
 } from "../components";
+import Counters from "../components/class/Counters";
 
 const Index: NextPage = () => {
 	return (
@@ -11,7 +12,8 @@ const Index: NextPage = () => {
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
 			<LayoutHome />
-			{/* <Practice /> */}
+			{/* Class */}
+			{/* <Counters /> */}
 		</Layout>
 	);
 };
