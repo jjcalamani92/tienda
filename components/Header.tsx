@@ -238,9 +238,12 @@ export const Header = () => {
 
 										<div className="border-t border-gray-200 py-6 px-4 space-y-6">
 											<div className="flow-root">
-												<a href="/auth/login" className="-m-2 p-2 block font-medium text-gray-900">
-													Panel de Administración
-												</a>
+												<Link href="/auth/login/">
+													<a className="-m-2 p-2 block font-medium text-gray-900">
+														Panel de Administración
+													</a>
+												</Link>
+												
 											</div>
 										</div>
 									)
@@ -250,9 +253,12 @@ export const Header = () => {
 
 
 									<div className="flow-root">
-										<a href="/auth/register" className="-m-2 p-2 block font-medium text-gray-900">
-											Register
-										</a>
+										<Link href="/auth/register">
+											<a className="-m-2 p-2 block font-medium text-gray-900">
+												Register
+											</a>
+										</Link>
+										
 									</div>
 									{
 										isLoggedIn
@@ -265,9 +271,13 @@ export const Header = () => {
 
 											:
 											<div className="flow-root">
-												<a href="/auth/login" className="m-2 p-2 block font-medium text-gray-900">
-													Login
-												</a>
+												<Link href="/auth/login">
+												<a className="m-2 p-2 block font-medium text-gray-900">
+											
+												Login
+											</a>
+										</Link>
+
 											</div>
 
 									}
