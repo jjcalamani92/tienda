@@ -60,7 +60,7 @@ const navigation = {
 		}
 	],
 	pages: [
-		{ name: "Categorias", href: "categorias" },
+		{ name: "Categorias", href: "/linea-automotiva" },
 		{ name: "Servicios", href: "servicios" },
 		{ name: "Contacto", href: "contacto" }
 	]
