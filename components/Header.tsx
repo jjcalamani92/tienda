@@ -18,7 +18,7 @@ import { Fragment, useContext, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCarAlt, faCartShopping, faSearch, faBars, faX, faRightToBracket, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { faCarAlt, faCartShopping, faSearch, faBars, faX, faRightToBracket, faArrowRightToBracket, faRightFromBracket, faFolder, faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from "../src/context";
 
 const navigation = {
@@ -28,7 +28,7 @@ const navigation = {
 			name: "Tienda",
 			featured: [
 				{
-					name: "de fabrica",
+					name: "De fabrica",
 					href: "#",
 					imageSrc:
 						"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1651761142/pinturas/productos/poliuretano/181103052847z4_7500_x6krkq.png",
@@ -36,7 +36,7 @@ const navigation = {
 						"Models sitting back to back, wearing Basic Tee in black and bone."
 				},
 				{
-					name: "Productos en descuento",
+					name: "Productos en oferta",
 					href: "#",
 					imageSrc:
 						"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1651761866/pinturas/productos/poliuretano/200221035708ultra-up-640_r4epkd.jpg",
@@ -46,8 +46,9 @@ const navigation = {
 			],
 			sections: [
 				{
-					id: "mujer",
+					id: "1",
 					name: "Linea Automotiva",
+					href: "linea-automotiva",
 					items: [
 						{ name: "poliuretano", href: "/linea-automotiva/poliuretano" },
 						{ name: "acrilico", href: "/linea-automotiva/acrilico" },
@@ -55,12 +56,36 @@ const navigation = {
 						{ name: "masilla", href: "/linea-automotiva/masilla" },
 						{ name: "primer", href: "/linea-automotiva/primer" }
 					]
-				}
+				},
+				{
+					id: "1",
+					name: "accesorios",
+					href: "accesorios",
+					items: [
+						{ name: "poliuretano", href: "/linea-automotiva/poliuretano" },
+						{ name: "acrilico", href: "/linea-automotiva/acrilico" },
+						{ name: "gloss", href: "/linea-automotiva/gloss" },
+						{ name: "masilla", href: "/linea-automotiva/masilla" },
+						{ name: "primer", href: "/linea-automotiva/primer" }
+					]
+				},
+				{
+					id: "1",
+					name: "marcas",
+					href: "marcas",
+					items: [
+						{ name: "poliuretano", href: "/linea-automotiva/poliuretano" },
+						{ name: "acrilico", href: "/linea-automotiva/acrilico" },
+						{ name: "gloss", href: "/linea-automotiva/gloss" },
+						{ name: "masilla", href: "/linea-automotiva/masilla" },
+						{ name: "primer", href: "/linea-automotiva/primer" }
+					]
+				},
 			]
 		}
 	],
 	pages: [
-		{ name: "Categorias", href: "linea-automotiva" },
+		// { name: "Categorias", href: "linea-automotiva" },
 		{ name: "Servicios", href: "servicios" },
 		{ name: "Contacto", href: "contacto" }
 	]
@@ -154,7 +179,7 @@ export const Header = () => {
 																/>
 															</div>
 															<Link href={item.href} passHref prefetch={false}>
-															<a href="#" className="mt-6 block font-medium text-gray-900">
+																<a href="#" className="mt-6 block font-medium text-gray-900">
 																	<span
 																		className="absolute z-10 inset-0 capitalize"
 																		aria-hidden="true"
@@ -164,19 +189,22 @@ export const Header = () => {
 															</Link>
 
 															<p aria-hidden="true" className="mt-1">
-																Shop now
+																Comprar ahora
 															</p>
 														</div>
 													))}
 												</div>
 												{category.sections.map((section) => (
 													<div key={section.name}>
-														<p
-															id={`${category.id}-${section.id}-heading-mobile`}
-															className="font-medium text-gray-900"
-														>
-															{section.name}
-														</p>
+														<Link href={`/${section.href}`}>
+															<a
+																id={`${category.id}-${section.id}-heading-mobile`}
+																className="font-medium text-gray-900 capitalize"
+															>
+																{section.name}
+															</a>
+														</Link>
+
 														<ul
 															role="list"
 															aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
@@ -215,7 +243,7 @@ export const Header = () => {
 									))}
 								</div>
 
-								{
+								{/* {
 									isLoggedIn && (
 										<>
 											<div className="border-t border-gray-200 py-6 px-4 space-y-6">
@@ -243,13 +271,13 @@ export const Header = () => {
 														Panel de Administración
 													</a>
 												</Link>
-												
+
 											</div>
 										</div>
 									)
-								}
+								} */}
 
-								<div className="border-t border-gray-200 py-6 px-4 space-y-6">
+								{/* <div className="border-t border-gray-200 py-6 px-4 space-y-6">
 
 
 									<div className="flow-root">
@@ -258,7 +286,7 @@ export const Header = () => {
 												Register
 											</a>
 										</Link>
-										
+
 									</div>
 									{
 										isLoggedIn
@@ -268,20 +296,17 @@ export const Header = () => {
 													Salir
 												</a>
 											</div>
-
 											:
 											<div className="flow-root">
 												<Link href="/auth/login">
-												<a className="m-2 p-2 block font-medium text-gray-900">
-											
-												Login
-											</a>
-										</Link>
+													<a className="-m-2 p-2 block font-medium text-gray-900">
 
+														Login
+													</a>
+												</Link>
 											</div>
-
 									}
-								</div>
+								</div> */}
 
 								{/* <div className="border-t border-gray-200 py-6 px-4">
 									<Link href="#" passHref prefetch={false}>
@@ -330,7 +355,7 @@ export const Header = () => {
 							{/* Logo */}
 							<div className="ml-4 flex lg:ml-0">
 								<Link href="/">
-								<a href="#" >
+									<a href="#" >
 										<span className="sr-only">Workflow</span>
 										<img
 											className="h-8 w-auto"
@@ -395,7 +420,7 @@ export const Header = () => {
 																						/>
 																					</div>
 																					<Link href={item.href}>
-																					<a href="#" className="mt-6 block font-medium text-gray-900">
+																						<a href="#" className="mt-6 block font-medium text-gray-900">
 																							<span
 																								className="absolute z-10 inset-0"
 																								aria-hidden="true"
@@ -408,7 +433,7 @@ export const Header = () => {
 																						aria-hidden="true"
 																						className="mt-1"
 																					>
-																						Shop now
+																						Comprar ahora
 																					</p>
 																				</div>
 																			))}
@@ -418,7 +443,7 @@ export const Header = () => {
 																				<div key={i}>
 																					<p
 																						id={`${section.name}-heading`}
-																						className="font-medium text-gray-900"
+																						className="font-medium text-gray-900 capitalize"
 																					>
 																						{section.name}
 																					</p>
@@ -433,7 +458,7 @@ export const Header = () => {
 																								className="flex"
 																							>
 																								<Link href={`/${item.href}`}>
-																								<a href="#" className="hover:text-gray-800 capitalize">
+																									<a href="#" className="hover:text-gray-800 capitalize">
 																										{item.name}
 																									</a>
 																								</Link>
@@ -487,7 +512,7 @@ export const Header = () => {
                 </div> */}
 
 								{/* Search */}
-								{
+								{/* {
 									isLoggedIn
 										?
 										<div className="lg:ml-2 hidden lg:flex">
@@ -511,10 +536,10 @@ export const Header = () => {
 											</a>
 										</div>
 
-								}
+								} */}
 
 
-								<div className="flex lg:ml-2">
+								{/* <div className="flex lg:ml-2">
 									<a href="#" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
 										<span className="sr-only">Search</span>
 										<FontAwesomeIcon
@@ -522,10 +547,57 @@ export const Header = () => {
 											icon={faSearch}
 										/>
 									</a>
-								</div>
+								</div> */}
+								{
+									isLoggedIn
+										?
+										<>
+										{
+									user?.role === 'ADMIN_ROL' && (
+
+										<div className="flex lg:ml-2">
+												<a href="#" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
+													<span className="sr-only">Admin</span>
+													<FontAwesomeIcon
+														className="w-6 h-6"
+														icon={faChartLine}
+													/>
+												</a>
+											</div>
+									)
+								}
+											
+
+											<div className="flex lg:ml-2" onClick={logout}>
+											<a className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
+												<span className="sr-only">Logout</span>
+												<FontAwesomeIcon
+													className="w-6 h-6"
+													icon={faRightFromBracket}
+												/>
+											</a>
+										</div>
+										</>
+
+										:
+										<Link href="/auth/login">
+													
+													<div className="flex lg:ml-2">
+												<a className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
+													<span className="sr-only">Login</span>
+													<FontAwesomeIcon
+														className="w-6 h-6"
+														icon={faRightToBracket}
+													/>
+												</a>
+											</div>
+												</Link>
+										
+										
+								}
 
 								{/* Cart */}
-							{/* <div className="flow-root lg:ml-2">
+								{/* <div className="flow-root lg:ml-2">
 									<a href="#" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
 										<FontAwesomeIcon
 											className="w-6 h-6"
