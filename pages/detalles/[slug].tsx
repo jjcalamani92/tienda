@@ -14,6 +14,7 @@ interface Props {
 }
 
 const SlugPage: NextPage<Props> = ({ slug }) => {
+	
 	const { loading, error, data } = useQuery(PRODUCT_BY_SLUG, {
 		variables: { slug: `${slug}` }
 	});
@@ -47,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		props: {
 			slug
 		},
-		revalidate: 60 * 60 * 24
+		revalidate: 60
 	};
 };
 export default SlugPage;

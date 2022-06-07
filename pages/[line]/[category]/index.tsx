@@ -21,6 +21,7 @@ const CategoryPage = () => {
     variables: { line: `${line}`, category: `${category}` },
   });
   if (loading) return <Spinner01 />;
+  
   console.log(data)
   return (
     <>  

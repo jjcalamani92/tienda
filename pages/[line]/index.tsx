@@ -9,8 +9,9 @@ import { Site } from "../../src/interfaces";
 import { SITEBYCATEGORY } from "../../src/gql/query";
 import { clientSite } from "../../src/apollo";
 import { Category, Section } from "../../src/interfaces/Site";
-import { request } from "graphql-request";
+import { request, RequestDocument } from "graphql-request";
 import useSWR from "swr";
+import { useProduct } from "../../src/swr/graphqlClient";
 // require('dotenv').config()
 const API_ENDPOINT = `${process.env.APIS_URL}/graphql`
 
@@ -18,12 +19,18 @@ interface Props {
 	line: string;
 }
 
-const LinePage: NextPage<Props> = ({ line }) => {
-	const { isValidating, error, data } = useSWR(SITEBYCATEGORY, (query) =>
-		request(API_ENDPOINT, query)
-	);
-
-	if (isValidating) return <Spinner01 />;
+const LinePage: NextPage<Props> = ({ line }) => { 
+// const {data, isLoading} = useProduct( SITEBYCATEGORY )
+	
+	const { isValidating, error, data } = useSWR(
+		SITEBYCATEGORY, 
+		(query) => request(API_ENDPOINT, query),
+		{refreshInterval: 60000}
+		);
+		
+		// if (isLoading) return <Spinner01 />;
+		if (isValidating) return <Spinner01 />;
+		console.log('hola', data)
 	const site = data.sites.find(findId);
 	function findId(site: Site) {
 		return site._id === process.env.API_USER;

@@ -19,7 +19,6 @@ const AdminPage: NextPage<Props> = ({ paints }) => {
 			<Table02 products={paints} />
 		</Layout>
 	);
-
 };
 
 export async function getStaticProps() {

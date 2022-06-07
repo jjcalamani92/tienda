@@ -6,15 +6,24 @@ import {
 import { client } from "../src/apollo";
 import { AuthProvider } from "../src/context";
 import { SessionProvider } from "next-auth/react"
+import { SWRConfig } from "swr";
+import request from "graphql-request";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<SessionProvider>
-			<ApolloProvider client={ client }>
-				<AuthProvider>
-					<Component {...pageProps} />
-				</AuthProvider>
-			</ApolloProvider>
+			<SWRConfig
+				value={{
+					fetcher: query => request(`${process.env.APIS_URL}/graphql`, query),
+					refreshInterval: 3000
+				}}
+			>
+				<ApolloProvider client={ client }>
+					<AuthProvider>
+						<Component {...pageProps} />
+					</AuthProvider>
+				</ApolloProvider>
+			</SWRConfig>
 		</SessionProvider>
 	);
 }
