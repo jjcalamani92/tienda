@@ -19,6 +19,7 @@ const SlugPage: NextPage<Props> = ({ slug }) => {
 		variables: { slug: `${slug}` }
 	});
 	if (loading) return <Spinner01 />;
+	console.log(slug)
 	return (
 		<Layout
 			title={"Choco - Stores"}
@@ -44,6 +45,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { slug = "" } = params as { slug: string };
+	console.log(slug)
 	return {
 		props: {
 			slug
