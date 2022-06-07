@@ -171,7 +171,7 @@ export const Header = () => {
 												<div className="grid grid-cols-2 gap-x-4">
 													{category.featured.map((item, i) => (
 														<div key={i} className="group relative text-sm">
-															<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+															<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75 bg-white">
 																<img
 																	src={item.imageSrc}
 																	alt={item.imageAlt}
@@ -412,7 +412,7 @@ export const Header = () => {
 																					key={i}
 																					className="group relative text-base sm:text-sm"
 																				>
-																					<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+																					<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75 bg-white">
 																						<img
 																							src={item.imageSrc}
 																							alt={item.imageAlt}
@@ -441,12 +441,14 @@ export const Header = () => {
 																		<div className="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-sm">
 																			{category.sections.map((section, i) => (
 																				<div key={i}>
-																					<p
-																						id={`${section.name}-heading`}
-																						className="font-medium text-gray-900 capitalize"
-																					>
-																						{section.name}
-																					</p>
+																					<Link href={`/${section.href}`}>
+																						<a
+																							id={`${section.name}-heading`}
+																							className="font-medium text-gray-900 capitalize"
+																						>
+																							{section.name}
+																						</a>
+																					</Link>
 																					<ul
 																						role="list"
 																						aria-labelledby={`${section.name}-heading`}
@@ -556,7 +558,7 @@ export const Header = () => {
 									user?.role === 'ADMIN_ROL' && (
 
 										<div className="flex lg:ml-2">
-												<a href="#" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
+												<a href="admin" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
 													<span className="sr-only">Admin</span>
 													<FontAwesomeIcon
 														className="w-6 h-6"

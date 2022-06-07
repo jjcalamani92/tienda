@@ -1,16 +1,18 @@
 import { NextPage } from "next";
-import { Layout } from "../../components";
+import { useContext } from "react";
+import { Layout, Login } from "../../components";
 import { Table02 } from "../../components/Table";
 import { client } from "../../src/apollo";
+import { AuthContext } from "../../src/context";
 import { PRODUCT_UPDATE, PRODUCTS } from "../../src/gql/query";
 import { IProduct, Product } from "../../src/interfaces";
+import { useRouter } from 'next/router';
 interface Props {
 	paints: IProduct[];
 }
 
 const AdminPage: NextPage<Props> = ({ paints }) => {
-	// console.log('wears')
-	// console.log(wears)
+
 	return (
 		<Layout
 			title={"Choco - Stores"}
@@ -20,6 +22,7 @@ const AdminPage: NextPage<Props> = ({ paints }) => {
 			<Table02 products={paints} />
 		</Layout>
 	);
+
 };
 
 export async function getStaticProps() {
