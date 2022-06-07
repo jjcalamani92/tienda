@@ -13,8 +13,8 @@ import { request } from "graphql-request";
 import useSWR from "swr";
 import { slug } from "../../src/utils/function";
 
-const API_ENDPOINT = "http://localhost:8002/graphql";
-// const API_ENDPOINT = "https://cristinadevelopments.herokuapp.com/graphql";
+// const API_ENDPOINT = "http://localhost:8002/graphql";
+const API_ENDPOINT = "https://cristinadevelopments.herokuapp.com/graphql";
 
 interface Props {
 	line: string;

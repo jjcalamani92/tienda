@@ -15,7 +15,8 @@ export const client = new ApolloClient({
 export const clientSite = new ApolloClient({
 	cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: 'http://localhost:8002/graphql',
+    uri: 'https://cristinadevelopments.herokuapp.com/graphql',
+    // uri: 'http://localhost:8002/graphql',
     fetch
   }),
   connectToDevTools: true,
