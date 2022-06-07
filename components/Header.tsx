@@ -283,7 +283,7 @@ export const Header = () => {
 									}
 								</div>
 
-								<div className="border-t border-gray-200 py-6 px-4">
+								{/* <div className="border-t border-gray-200 py-6 px-4">
 									<Link href="#" passHref prefetch={false}>
 									<a href="#" className="-m-2 p-2 flex items-center">
 											<img
@@ -297,7 +297,7 @@ export const Header = () => {
 											<span className="sr-only">, change currency</span>
 										</a>
 									</Link>
-								</div>
+								</div> */}
 							</Dialog.Panel>
 						</Transition.Child>
 					</div>
@@ -525,7 +525,7 @@ export const Header = () => {
 								</div>
 
 								{/* Cart */}
-								<div className="flow-root lg:ml-2">
+							{/* <div className="flow-root lg:ml-2">
 									<a href="#" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
 										<FontAwesomeIcon
 											className="w-6 h-6"
@@ -535,8 +535,8 @@ export const Header = () => {
 											0
 										</span>
 										<span className="sr-only">items in cart, view bag</span>
-									</a>
-								</div>
+									</a>	
+								</div> */}
 							</div>
 						</div>
 					</div>
