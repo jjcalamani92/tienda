@@ -30,8 +30,10 @@ export const SITEBYCATEGORY = gql`
 			_id
 			categories {
 				name
+				href
 				sections {
 					name
+					href
 					items {
 						name
 						href

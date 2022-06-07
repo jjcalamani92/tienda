@@ -72,6 +72,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 	const paths = site.categories.map((data: Category) => ({
 		params: { line: data.href }
 	}));
+	console.log(paths)
 	return {
 		paths,
 		fallback: false
