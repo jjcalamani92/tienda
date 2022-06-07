@@ -69,11 +69,9 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 	function findId(site: Site) {
 		return site._id === "12024a6d-9b63-4b8e-b247-e04ace043097";
 	}
-	// console.log(site);
 	const paths = site.categories.map((data: Category) => ({
 		params: { line: data.href }
 	}));
-	console.log(paths);
 	return {
 		paths,
 		fallback: false
