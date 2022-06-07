@@ -26,14 +26,14 @@ export const LayoutHome = () => {
 					<div className="flex flex-wrap gap-4 mt-8 text-center">
 						<a
 							className="block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-yellow-600 sm:w-auto active:bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring"
-							href=""
+							href="#"
 						>
 							Get Started
 						</a>
 
 						<a
 							className="block w-full px-12 py-3 text-sm font-medium bg-white rounded shadow text-yellow-600 sm:w-auto hover:text-yellow-700 active:text-yellow-600 focus:outline-none focus:ring"
-							href=""
+							href="#"
 						>
 							Learn More
 						</a>

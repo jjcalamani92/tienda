@@ -154,7 +154,7 @@ export const Header = () => {
 																/>
 															</div>
 															<Link href={item.href} passHref prefetch={false}>
-																<a className="mt-6 block font-medium text-gray-900">
+															<a href="#" className="mt-6 block font-medium text-gray-900">
 																	<span
 																		className="absolute z-10 inset-0 capitalize"
 																		aria-hidden="true"
@@ -189,7 +189,7 @@ export const Header = () => {
 																		passHref
 																		prefetch={false}
 																	>
-																		<a className="-m-2 p-2 block text-gray-500 capitalize">
+																		<a href="#" className="-m-2 p-2 block text-gray-500 capitalize">
 																			{item.name}
 																		</a>
 																	</Link>
@@ -265,7 +265,7 @@ export const Header = () => {
 
 											:
 											<div className="flow-root">
-												<a href="/auth/login" className="-m-2 p-2 block font-medium text-gray-900">
+												<a href="/auth/login" className="m-2 p-2 block font-medium text-gray-900">
 													Login
 												</a>
 											</div>
@@ -275,7 +275,7 @@ export const Header = () => {
 
 								<div className="border-t border-gray-200 py-6 px-4">
 									<Link href="#" passHref prefetch={false}>
-										<a className="-m-2 p-2 flex items-center">
+									<a href="#" className="-m-2 p-2 flex items-center">
 											<img
 												src="https://tailwindui.com/img/flags/flag-canada.svg"
 												alt=""
@@ -320,7 +320,7 @@ export const Header = () => {
 							{/* Logo */}
 							<div className="ml-4 flex lg:ml-0">
 								<Link href="/">
-									<a >
+								<a href="#" >
 										<span className="sr-only">Workflow</span>
 										<img
 											className="h-8 w-auto"
@@ -385,7 +385,7 @@ export const Header = () => {
 																						/>
 																					</div>
 																					<Link href={item.href}>
-																						<a className="mt-6 block font-medium text-gray-900">
+																					<a href="#" className="mt-6 block font-medium text-gray-900">
 																							<span
 																								className="absolute z-10 inset-0"
 																								aria-hidden="true"
@@ -423,7 +423,7 @@ export const Header = () => {
 																								className="flex"
 																							>
 																								<Link href={`/${item.href}`}>
-																									<a className="hover:text-gray-800 capitalize">
+																								<a href="#" className="hover:text-gray-800 capitalize">
 																										{item.name}
 																									</a>
 																								</Link>
@@ -445,7 +445,7 @@ export const Header = () => {
 
 									{navigation.pages.map((page, i) => (
 										<Link href={`/${page.href}`} key={i}>
-											<a className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
+											<a href="#" className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
 												{page.name}
 											</a>
 										</Link>

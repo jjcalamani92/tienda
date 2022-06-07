@@ -35,7 +35,7 @@ export const LayoutProductlist01: FC<Props> = ({ products }) => {
 											passHref
 											prefetch={false}
 										>
-											<a>
+											<a href="#">
 												<span aria-hidden="true" className="absolute inset-0" />
 												{product.name}
 											</a>

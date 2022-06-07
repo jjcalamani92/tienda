@@ -13,28 +13,28 @@ export const Footer = () => {
 									<ul>
 										<li>
 											<Link href="#">
-												<a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
+											<a href="#" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
 													Components
 												</a>
 											</Link>
 										</li>
 										<li className="mt-6">
 											<Link href="#">
-												<a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
+											<a href="#"className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
 													Templates
 												</a>
 											</Link>
 										</li>
 										<li className="mt-6">
 											<Link href="#">
-												<a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
+											<a href="#"className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
 													Pricing
 												</a>
 											</Link>
 										</li>
 										<li className="mt-6">
 											<Link href="#">
-												<a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
+											<a href="#" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
 													FAQ
 												</a>
 											</Link>
@@ -53,7 +53,7 @@ export const Footer = () => {
 									<ul>
 										<li>
 											<Link href="#">
-												<a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
+											<a href="#" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
 													Free components
 												</a>
 											</Link>
@@ -61,14 +61,14 @@ export const Footer = () => {
 
 										<li className="mt-6">
 											<Link href="#">
-												<a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
+											<a href="#" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
 													Blog
 												</a>
 											</Link>
 										</li>
 										<li className="mt-6">
 											<Link href="#">
-												<a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
+											<a href="#" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
 													Changelog
 												</a>
 											</Link>
@@ -89,7 +89,7 @@ export const Footer = () => {
 										</li>
 										<li className="mt-6">
 											<Link href="#">
-												<a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
+											<a href="#" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
 													Terms of service
 												</a>
 											</Link>
@@ -229,7 +229,7 @@ export const Footer = () => {
 				</div>
 				<div className="py-16 flex flex-col justify-center items-center">
 					<Link href="#">
-						<a>
+					<a href="#">
 							<img
 								className="h-8 w-auto"
 								src="https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg"

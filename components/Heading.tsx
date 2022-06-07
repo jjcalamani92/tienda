@@ -19,7 +19,7 @@ export const Heading02: FC<Props03> = ({ line, category }) => {
 					<li>
 						<div className="flex items-center">
 							<Link href={`/${slug(line)}`} passHref prefetch={false}>
-								<a className="mr-2 text-sm font-medium text-gray-900 capitalize">
+							<a href="#" className="mr-2 text-sm font-medium text-gray-900 capitalize">
 									{line}
 								</a>
 							</Link>
@@ -44,7 +44,7 @@ export const Heading02: FC<Props03> = ({ line, category }) => {
 								passHref
 								prefetch={false}
 							>
-								<a className="mr-2 text-sm font-medium text-gray-900 capitalize">
+								<a href="#" className="mr-2 text-sm font-medium text-gray-900 capitalize">
 									{category}
 								</a>
 							</Link>
@@ -80,7 +80,7 @@ export const Heading04: FC<Props04> = ({ category }) => {
 					<li>
 						<div className="flex items-center">
 							<Link href={`/${slug(category)}`} passHref prefetch={false}>
-								<a className="mr-2 text-sm font-medium text-gray-900 capitalize">
+							<a href="#" className="mr-2 text-sm font-medium text-gray-900 capitalize">
 									{category}
 								</a>
 							</Link>

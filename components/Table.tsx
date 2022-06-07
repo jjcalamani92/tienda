@@ -70,7 +70,7 @@ export const Table02: FC<Props> = ({ products }) => {
                 </a>
               </div>
               <Link href={`/admin/add`} >
-                <a
+              <a href="#"
                   className="mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-red-600 hover:bg-red-700 focus:outline-none rounded"
                 >
                   <p className="text-sm font-medium leading-none text-white">
