@@ -58,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 				slug
 			}
 		})),
-		fallback: false
+		fallback: "blocking"
 	};
 };
 export default SlugPage;
