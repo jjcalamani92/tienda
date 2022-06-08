@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 				slug
 			}
 		})),
-		fallback: false
+		fallback: true
 	};
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -57,8 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	return {
     props: {
       product
-    },
-    revalidate: 60
+    }
   }
 };
 export default SlugPage;
