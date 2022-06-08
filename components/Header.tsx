@@ -562,8 +562,9 @@ export const Header = () => {
 										{
 									user?.role === 'ADMIN_ROL' && (
 
-										<div className="flex lg:ml-2">
-												<a href="admin" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
+										<Link href="/admin">
+												<div className="flex lg:ml-2">
+												<a className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
 													<span className="sr-only">Admin</span>
 													<FontAwesomeIcon
 														className="w-6 h-6"
@@ -571,6 +572,7 @@ export const Header = () => {
 													/>
 												</a>
 											</div>
+											</Link>
 									)
 								}
 											
