@@ -2,34 +2,25 @@ import { NextPage } from "next";
 import { Layout } from "../../components";
 import { Table02 } from "../../components/Table";
 import { client } from "../../src/apollo";
-import { PRODUCT_UPDATE } from "../../src/gql/query";
+import { PRODUCTS, PRODUCT_UPDATE } from "../../src/gql/query";
 import { IProduct } from "../../src/interfaces";
+import { useQuery } from '@apollo/client';
+import { Spinner01 } from '../../components/Spinner';
 interface Props {
 	paints: IProduct[];
 }
 
-const AdminPage: NextPage<Props> = ({ paints }) => {
-
+const AdminPage: NextPage<Props> = () => {
+	const { loading, error, data } = useQuery(PRODUCT_UPDATE);
+	if (loading) return <Spinner01 />;
+	console.log(data.paints)
 	return (
 		<Layout
 			title={"Choco - Stores"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-			{/* <Table01 products={wears} /> */}
-			<Table02 products={paints} />
+			<Table02 products={data.paints} />
 		</Layout>
 	);
 };
-
-export async function getStaticProps() {
-	const { data } = await client.query({
-		query: PRODUCT_UPDATE
-	});
-	return {
-		props: {
-			paints: data.paints
-		}
-	};
-}
-
 export default AdminPage;

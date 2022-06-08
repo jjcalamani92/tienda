@@ -84,7 +84,7 @@ export const FormAdd = () => {
 			`${process.env.APIP_URL}/api/paint`,
 			form
 		);
-		router.replace("/admin");
+		router.push("/admin");
 	};
 	const onFileSelected = async ({ target }: ChangeEvent<HTMLInputElement>) => {
 		if (!target.files || target.files.length === 0) {

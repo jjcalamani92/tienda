@@ -34,7 +34,6 @@ const SlugPage: NextPage<Props> = ({ slug }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-
 	const { slug = "" } = params as { slug: string };
 	return {
 		props: {
