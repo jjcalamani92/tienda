@@ -9,55 +9,53 @@ import { IProduct } from "../../src/interfaces";
 import { PRODUCTS, PRODUCT_BY_SLUG } from "../../src/gql/query";
 import { client } from "../../src/apollo";
 import { getAllProductSlugs, getProductBySlug } from '../../src/db/dbProduct';
+import { GraphQLClient } from 'graphql-request';
 
 interface Props {
-	product: IProduct;
+	slug: string;
 }
 
-const SlugPage: NextPage<Props> = ({ product }) => {
+const SlugPage: NextPage<Props> = ({ slug }) => {
 
-	// const { loading, error, data } = useQuery(PRODUCT_BY_SLUG, {
-	// 	variables: { slug: `${slug}` }
-	// });
-	// if (loading) return <Spinner01 />;
+	const { loading, error, data } = useQuery(PRODUCT_BY_SLUG, {
+		variables: { slug: `${slug}` }
+	});
+	if (loading) return <Spinner01 />;
 	// console.log(slug)
 	return (
 		<Layout
 			title={"Choco - Stores"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-			<ProductOverviews05 product={product} />
+			<ProductOverviews05 product={data.paintBySlug} />
 
 		</Layout>
 	);
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+
 	const { slug = "" } = params as { slug: string };
-	const product = await getProductBySlug( slug );
-  if ( !product ) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false
-      }
-    }
-  }
 	return {
 		props: {
-			product
+			slug
     },
-    revalidate: 10
+    revalidate: 60 * 60 * 24
   }
 };
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-	const slugs = await getAllProductSlugs();
+	const { data } = await client.query({
+		query: PRODUCTS
+	});
+
+	const paths = data.paints.map((data: IProduct) => ({
+		params: { slug: data.slug }
+	}));
+	// console.log('hola', pathss)
+	// const slugs = await getAllProductSlugs();
+	// console.log(slugs)
 	return {
-		paths: slugs.map(({ slug }) => ({
-			params: {
-				slug
-			}
-		})),
+		paths,
 		fallback: "blocking"
 	};
 };
