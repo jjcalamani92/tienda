@@ -32,17 +32,6 @@ const SlugPage: NextPage<Props> = ({ product }) => {
 	);
 };
 
-export const getStaticPaths: GetStaticPaths = async (ctx) => {
-	const slugs = await getAllProductSlugs();
-	return {
-		paths: slugs.map(({ slug }) => ({
-			params: {
-				slug
-			}
-		})),
-		fallback: false
-	};
-};
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { slug = "" } = params as { slug: string };
 	const product = await getProductBySlug( slug );
@@ -55,10 +44,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   }
 	return {
-    props: {
-      product
+		props: {
+			product
     },
-    revalidate: 60 * 60 * 24
+    revalidate: 10
   }
+};
+export const getStaticPaths: GetStaticPaths = async (ctx) => {
+	const slugs = await getAllProductSlugs();
+	return {
+		paths: slugs.map(({ slug }) => ({
+			params: {
+				slug
+			}
+		})),
+		fallback: true
+	};
 };
 export default SlugPage;
