@@ -8,15 +8,13 @@ import { useQuery } from "@apollo/client";
 import { IProduct } from "../../src/interfaces";
 import { PRODUCTS, PRODUCT_BY_SLUG } from "../../src/gql/query";
 import { client } from "../../src/apollo";
-import { getAllProductSlugs, getProductBySlug } from '../../src/db/dbProduct';
-import { GraphQLClient } from 'graphql-request';
 import Heading01 from "../../components/Heading/Heading";
 
-interface Props {
+interface SlugPage {
 	slug: string;
 }
 
-const SlugPage: NextPage<Props> = ({ slug }) => {
+const SlugPage: NextPage<SlugPage> = ({ slug }) => {
 
 	const { loading, error, data } = useQuery(PRODUCT_BY_SLUG, {
 		variables: { slug: `${slug}` }
