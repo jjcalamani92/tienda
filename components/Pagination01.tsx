@@ -14,18 +14,20 @@ export const Pagination01:FC<Props> = ({setPage, page, length, all}) => {
   return (
     <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
       <div className="flex-1 flex justify-between sm:hidden">
-        <a
-          href="#"
+        <button
+          disabled={!page}
+          onClick={() => setPage((prev:number) => prev-1)}
           className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
         >
           Previous
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
+          disabled={length < all}
+          onClick={() => setPage((prev:number) => prev+1)}
           className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
         >
           Next
-        </a>
+        </button>
       </div>
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         {/* <div>
