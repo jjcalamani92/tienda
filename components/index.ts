@@ -1,5 +1,6 @@
 export * from './Footer'
 export * from './Header'
+export * from './Header/HeaderC'
 export * from './Heading'
 export * from './Layout'
 export * from './LayoutHome'
