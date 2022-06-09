@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { Heading02, Layout, LayoutProductlist, Spinner01 } from "../../../components";
+import { Layout, LayoutProductlist, Spinner01 } from "../../../components";
 import { useRouter } from "next/router";
 import { IProduct } from "../../../src/interfaces";
 import { useQuery } from "@apollo/client";
@@ -9,7 +9,7 @@ import {
 } from "../../../src/gql/query";
 import { client } from "../../../src/apollo";
 import { LayoutProductlist01 } from "../../../components/LayoutProductList01";
-import Heading01 from "../../../components/class/Heading";
+import Heading01 from "../../../components/Heading/Heading";
 import React, { Component } from "react";
 
 
@@ -22,14 +22,12 @@ const CategoryPage = () => {
   });
   if (loading) return <Spinner01 />;
   
-  console.log(data)
   return (
     <>  
       <Layout
       title={"Choco - Stores"}
       pageDescription={"Encuentra tu ropa favorita"}
     >
-      <Heading02 line={line} category={category} />
       <Heading01 line={`${line}`} category={`${category}`} />
       <LayoutProductlist01 products={data.paintByLineAndCategory} />
     </Layout>

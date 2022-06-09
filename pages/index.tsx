@@ -12,8 +12,8 @@ const Index: NextPage = () => {
 			title={"Piccoletti - Store"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-			{/* <LayoutHome /> */}
-			<SwiperHome image={image} />
+			<LayoutHome />
+			{/* <SwiperHome image={image} /> */}
 			{/* Class */}
 			{/* <Counters /> */}
 		</Layout>

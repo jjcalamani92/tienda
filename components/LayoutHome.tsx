@@ -3,7 +3,7 @@ export const LayoutHome = () => {
 		<section className="relative bg-white">
 			<img
 				className="absolute inset-0 object-[75%] sm:object-[25%] object-cover w-full h-full opacity-25 sm:opacity-100"
-				src="https://images.unsplash.com/photo-1601758003122-53c40e686a19"
+				src="https://www.revistagranitodearena.com/wp-content/uploads/2020/02/Pintar-con-cal-es-color-y-alegr%C3%ADa-guatemala-horcalsa-cementos-progreso.jpg"
 				alt="Couple on a bed with a dog"
 			/>
 

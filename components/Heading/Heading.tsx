@@ -1,18 +1,17 @@
 import Link from "next/link";
 import React, {Component} from "react";
-import { slug } from "../../src/utils/function";
 
 interface Heading01Props {
   line: string
-  category: string
+  category?: string
+  name?: string
 }
 
 
 
 class Heading01 extends React.Component<Heading01Props> {
-
   render() {
-    const { line, category} = this.props
+    const { line, category, name} = this.props
     return (<nav aria-label="Breadcrumb" className=" py-2 md:py-6">
       <ol
         role="list"
@@ -26,7 +25,15 @@ class Heading01 extends React.Component<Heading01Props> {
               </a>
             </Link>
 
-            <svg
+            
+          </div>
+        </li>
+        {
+          this.props.category 
+          ? 
+        <li>
+          <div className="flex items-center">
+          <svg
               width={16}
               height={20}
               viewBox="0 0 16 20"
@@ -37,10 +44,6 @@ class Heading01 extends React.Component<Heading01Props> {
             >
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
-          </div>
-        </li>
-        <li>
-          <div className="flex items-center">
             <Link
               href={`/${line}/${category}`}
               passHref
@@ -50,7 +53,18 @@ class Heading01 extends React.Component<Heading01Props> {
                 {category}
               </a>
             </Link>
-            <svg
+          
+          </div>
+        </li>
+        :
+        null
+        }
+        {
+          this.props.name 
+          ? 
+        <li>
+          <div className="flex items-center">
+          <svg
               width={16}
               height={20}
               viewBox="0 0 16 20"
@@ -61,12 +75,26 @@ class Heading01 extends React.Component<Heading01Props> {
             >
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
+            <Link
+              href={`/detalles/${name}`}
+              passHref
+              prefetch={false}
+            >
+              <a href="#" className="mr-2 text-sm font-medium text-gray-900 capitalize">
+                {name}
+              </a>
+            </Link>
+          
           </div>
         </li>
+        :
+        null
+        }
 
       </ol>
     </nav>);
   }
 }
+
 
 export default Heading01;

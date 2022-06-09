@@ -100,7 +100,7 @@ export const Header01 = () => {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<div className="bg-white">
+		<div className="bg-white divide-y">
 			{/* Mobile menu */}
 			<Transition.Root show={open} as={Fragment}>
 				<Dialog as="div" className="relative z-50 lg:hidden" onClose={setOpen}>
@@ -332,7 +332,7 @@ export const Header01 = () => {
 				</Dialog>
 			</Transition.Root>
 
-			<header className="relative bg-white">
+			<header className="relative bg-white ">
 				{/* <p className="bg-yellow-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
 					Get free delivery on orders over $100
 				</p> */}

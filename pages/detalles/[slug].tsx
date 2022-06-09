@@ -10,6 +10,7 @@ import { PRODUCTS, PRODUCT_BY_SLUG } from "../../src/gql/query";
 import { client } from "../../src/apollo";
 import { getAllProductSlugs, getProductBySlug } from '../../src/db/dbProduct';
 import { GraphQLClient } from 'graphql-request';
+import Heading01 from "../../components/Heading/Heading";
 
 interface Props {
 	slug: string;
@@ -27,6 +28,8 @@ const SlugPage: NextPage<Props> = ({ slug }) => {
 			title={"Choco - Stores"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
+      <Heading01 line={`${data.paintBySlug.line}`} category={`${data.paintBySlug.category}`} name={`${data.paintBySlug.name}`}/>
+			
 			<ProductOverviews05 product={data.paintBySlug} />
 
 		</Layout>

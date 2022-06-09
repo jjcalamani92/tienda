@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import {
-	Heading04,
 	Layout,
 	LayoutProductlist,
 	Spinner01
@@ -12,6 +11,7 @@ import { Category, Section } from "../../src/interfaces/Site";
 import { request, RequestDocument } from "graphql-request";
 import useSWR from "swr";
 import { useProduct } from "../../src/swr/graphqlClient";
+import Heading01 from "../../components/Heading/Heading";
 // require('dotenv').config()
 const API_ENDPOINT = `${process.env.APIS_URL}/graphql`
 
@@ -30,7 +30,6 @@ const LinePage: NextPage<Props> = ({ line }) => {
 		
 		// if (isLoading) return <Spinner01 />;
 		if (isValidating) return <Spinner01 />;
-		console.log('hola', data)
 	const site = data.sites.find(findId);
 	function findId(site: Site) {
 		return site._id === process.env.API_USER;
@@ -51,7 +50,7 @@ const LinePage: NextPage<Props> = ({ line }) => {
 			title={"Choco - Stores"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-			<Heading04 category={line} />
+      <Heading01 line={`${line}`} />
 			<LayoutProductlist products={section.items} />
 		</Layout>
 	);
