@@ -3,6 +3,7 @@ import { FC } from "react";
 import { Header, Footer01 } from ".";
 import { Header01 } from "./Header/Header";
 import HeaderC from "./Header/HeaderC";
+import { Footer } from './Footer';
 
 interface Props {
 	title: string;
@@ -33,7 +34,7 @@ export const Layout: FC<Props> = ({
 			<Header01 />
 			{/* <Header /> */}
 			<main>{children}</main>
-			{/* <Footer /> */}
+			<Footer />
 			<Footer01 />
 		</>
 	);
