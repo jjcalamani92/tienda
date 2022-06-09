@@ -124,3 +124,47 @@ export const PRODUCT_BY_SLUG = gql`
 		}
 	}
 `;
+export const PRODUCT_ALL = gql`
+	query PaintsAll($limit: Float!, $offset:Float!) {
+		paintsAll(listPaintsInput:  { limit: $limit, offset: $offset}) {
+			_id
+			name
+			brand
+			description
+			image
+			inStock
+			slug
+			line
+			category
+			price
+			tags
+		}
+
+}
+`
+export const PRODUCT_BY_PAGINATION = gql`
+	query ListPaintsWithCursor($after: String) {
+		listPaintsWithCursor(args: { first: 10, after: $after }) {
+			page {
+				edges {
+					node {
+						_id
+						name
+					}
+				}
+				pageInfo {
+					startCursor
+					endCursor
+					hasPreviousPage
+					hasNextPage
+				}
+			
+			}
+			pageData{
+				count
+				limit
+				offset
+			}
+		}
+	}
+`;

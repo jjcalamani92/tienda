@@ -316,7 +316,7 @@ export const FormAdd = () => {
 															onChange={onFileSelected}
 														/>
 													</label>
-													<p className="pl-1">o arrastrar y soltar</p>
+													{/* <p className="pl-1">o arrastrar y soltar</p> */}
 												</div>
 												<p className="text-xs text-gray-500">
 													PNG, JPG, GIF hasta 5MB
@@ -438,7 +438,7 @@ export const FormAdd = () => {
 										</div>
 									</div> */}
 
-										<div className="grid grid-cols-6 gap-6">
+										{/* <div className="grid grid-cols-6 gap-6">
 											<div className="col-span-6 sm:col-span-4">
 												<label
 													htmlFor="tags"
@@ -461,7 +461,7 @@ export const FormAdd = () => {
 													Presiona [Spacio] para agregar.
 												</p>
 											</div>
-										</div>
+										</div> */}
 										{/* <div className="grid grid-cols-2 gap-2 mt-2">
 										{values.sizes.map((data, i) => (
 											<>

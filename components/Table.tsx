@@ -181,7 +181,7 @@ export const Table02: FC<Props> = ({ products }) => {
                         </div>
                       </td>
                       <td className="pl-4">
-                        <Link href={`/admin/productos/${product.slug}`} >
+                        <Link href={`/admin/edit/${product.slug}`} >
                         <a>
                           <FontAwesomeIcon
                             className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
