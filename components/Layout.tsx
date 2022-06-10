@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { FC } from "react";
-import { Footer01 } from ".";
-import { HeaderWear } from './header/HeaderWear';
+import { Footer01, HeaderWear } from ".";
 
 interface Props {
 	title: string;
