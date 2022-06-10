@@ -4,7 +4,7 @@ import {
 	ApolloProvider
 } from "@apollo/client";
 import { client } from "../src/apollo";
-import { AuthProvider } from "../src/context";
+import { AuthProvider, CartProvider, UiProvider } from "../src/context";
 import { SessionProvider } from "next-auth/react"
 import { SWRConfig } from "swr";
 import request from "graphql-request";
@@ -18,11 +18,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 					refreshInterval: 300000
 				}}
 			>
-				<ApolloProvider client={ client }>
-					<AuthProvider>
-						<Component {...pageProps} />
-					</AuthProvider>
-				</ApolloProvider>
+				<CartProvider>
+					<UiProvider>
+						<ApolloProvider client={ client }>
+							<AuthProvider>
+								<Component {...pageProps} />
+							</AuthProvider>
+						</ApolloProvider>
+					</UiProvider>
+				</CartProvider>
 			</SWRConfig>
 		</SessionProvider>
 	);

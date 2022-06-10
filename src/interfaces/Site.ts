@@ -1,5 +1,5 @@
 export interface Site {
-  _id: string;
+  _id?: string;
   title: string;
   domain: string;
   logo: string;
@@ -8,21 +8,22 @@ export interface Site {
   type: string;
   categories: Category[];
   pages: Page[];
-  status: boolean;
+  status?: boolean;
 }
 
 export interface Category {
+  id?: string;
   name: string;
-  href: string;
-  description: string;
-  imageSrc: string;
-  imageAlt: string;
+  href?: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
   featured: Featured[];
   sections: Section[];
 }
 
 export interface Featured {
-  category: string;
+  category?: string;
   name: string;
   href: string;
   imageSrc: string;
@@ -30,26 +31,27 @@ export interface Featured {
 }
 
 export interface Section {
-  category: string;
-  section: string;
+  id?: string;
+  category?: string;
+  section?: string;
   name: string;
-  href: string;
+  href?: string;
   items: Item[];
 }
 
 export interface Item {
-  category: string;
-  section: string;
-  description: string;
+  category?: string;
+  section?: string;
+  description?: string;
   name: string;
   href: string;
-  imageSrc: string;
-  imageAlt: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 export interface Page {
-  category: string;
-  section: string;
+  category?: string;
+  section?: string;
   name: string;
   href: string;
 }

@@ -1,159 +1,15 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useContext } from 'react';
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { MenuIcon, SearchIcon, ShoppingBagIcon, XIcon } from '@heroicons/react/outline'
-
-const navigation = {
-  title: "chocostore",
-  domain: "chocostore.com",
-  logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg",
-  numberPhone: "342",
-  address: "av fatima",
-  type: "eccomerce",
-  categories: [
-    {
-      id: 'women',
-      name: 'Women',
-      featured: [
-        {
-          name: 'New Arrivals',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
-          imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
-        },
-        {
-          name: 'Basic Tees',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-          imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-        },
-      ],
-      sections: [
-        {
-          id: 'clothing',
-          name: 'Clothing',
-          items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Dresses', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Denim', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'men',
-      name: 'Men',
-      featured: [
-        {
-          name: 'New Arrivals',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-          imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
-        },
-        {
-          name: 'Artwork Tees',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
-          imageAlt:
-            'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-        },
-      ],
-      sections: [
-        {
-          id: 'clothing',
-          name: 'Clothing',
-          items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-          ],
-        },
-      ],
-    },
-  ],
-  pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
-  ],
-}
+import { UiContext } from '../../src/context';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
 export const HeaderWear = () => {
+  const {site, toggleSideSearch, toggleSideCart} = useContext(UiContext)
   const [open, setOpen] = useState(false)
-
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -197,7 +53,7 @@ export const HeaderWear = () => {
                 <Tab.Group as="div" className="mt-2">
                   <div className="border-b border-gray-200">
                     <Tab.List className="-mb-px flex px-4 space-x-8">
-                      {navigation.categories.map((category) => (
+                      {site.categories.map((category) => (
                         <Tab
                           key={category.name}
                           className={({ selected }) =>
@@ -213,7 +69,7 @@ export const HeaderWear = () => {
                     </Tab.List>
                   </div>
                   <Tab.Panels as={Fragment}>
-                    {navigation.categories.map((category) => (
+                    {site.categories.map((category) => (
                       <Tab.Panel key={category.name} className="pt-10 pb-8 px-4 space-y-10">
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map((item) => (
@@ -257,7 +113,7 @@ export const HeaderWear = () => {
                 </Tab.Group>
 
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-                  {navigation.pages.map((page) => (
+                  {site.pages.map((page) => (
                     <div key={page.name} className="flow-root">
                       <a href={page.href} className="-m-2 p-2 block font-medium text-gray-900">
                         {page.name}
@@ -319,7 +175,7 @@ export const HeaderWear = () => {
                   <span className="sr-only">Workflow</span>
                   <img
                     className="h-8 w-auto"
-                    src={navigation.logo}
+                    src={site.logo}
                     alt=""
                   />
                 </a>
@@ -328,7 +184,7 @@ export const HeaderWear = () => {
               {/* Flyout menus */}
               <Popover.Group className="hidden z-40 lg:ml-8 lg:block lg:self-stretch">
                 <div className="h-full flex space-x-8">
-                  {navigation.categories.map((category) => (
+                  {site.categories.map((category) => (
                     <Popover key={category.name} className="flex">
                       {({ open }) => (
                         <>
@@ -413,7 +269,7 @@ export const HeaderWear = () => {
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {site.pages.map((page) => (
                     <a
                       key={page.name}
                       href={page.href}
@@ -450,22 +306,22 @@ export const HeaderWear = () => {
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+                  <div onClick={toggleSideSearch}  className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <SearchIcon className="w-6 h-6" aria-hidden="true" />
-                  </a>
+                  </div>
                 </div>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 p-2 flex items-center">
+                  <div onClick={toggleSideCart} className="group -m-2 p-2 flex items-center">
                     <ShoppingBagIcon
                       className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
