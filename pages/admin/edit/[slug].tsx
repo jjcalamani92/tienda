@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { IProduct, IWear } from "../../../src/interfaces";
-import { FormEdit, Layout, Spinner01 } from "../../../components";
+import { FormEdit, FormWearEdit, Layout, Spinner01 } from "../../../components";
 import { useQuery } from "@apollo/client";
 import { PRODUCT_BY_SLUG, PRODUCTS, PRODUCT_UPDATE } from '../../../src/gql/wear/query';
 import { client } from '../../../src/apollo';
@@ -14,14 +14,13 @@ const SlugEditPage: NextPage<Props> = ({ slug }) => {
 		variables: { slug: `${slug}` }
 	});
 	if (loading) return <Spinner01 />;
-	console.log(data.wearBySlug)
 	return (
 		<Layout
-			title='{`${product.title}`}'
-			pageDescription='{`${product.description}`}'
-			imageFullUrl='{`${product.image[1]}`}'
+			title={`${data.wearBySlug.name}`}
+			pageDescription={`${data.wearBySlug.description}`}
+			imageFullUrl={`${data.wearBySlug.image[1]}`}
 		>
-      <FormEdit product={data.wearBySlug}/>
+      <FormWearEdit product={data.wearBySlug}/>
 		</Layout>
 	);
 };
