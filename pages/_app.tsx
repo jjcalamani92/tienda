@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<SWRConfig
 				value={{
 					fetcher: query => request(`${process.env.APIS_URL}/graphql`, query),
-					refreshInterval: 300000
+					refreshInterval: 3000000
 				}}
 			>
 				<CartProvider>
