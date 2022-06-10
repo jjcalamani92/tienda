@@ -5,6 +5,7 @@ import {
 	SwiperHome,
 } from "../components";
 import Counters from "../components/class/Counters";
+import { HomeWear } from "../components/home";
 const image=['1', '2']
 const Index: NextPage = () => {
 	return (
@@ -12,7 +13,7 @@ const Index: NextPage = () => {
 			title={"Piccoletti - Store"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-			<LayoutHome />
+			<HomeWear />
 			{/* <SwiperHome image={image} /> */}
 			{/* Class */}
 			{/* <Counters /> */}

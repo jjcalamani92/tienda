@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { IProduct } from "../../../src/interfaces";
+import { IProduct, IWear } from "../../../src/interfaces";
 import { FormEdit, Layout, Spinner01 } from "../../../components";
 import { useQuery } from "@apollo/client";
-import { PRODUCT_BY_SLUG, PRODUCTS, PRODUCT_UPDATE } from '../../../src/gql/query';
+import { PRODUCT_BY_SLUG, PRODUCTS, PRODUCT_UPDATE } from '../../../src/gql/wear/query';
 import { client } from '../../../src/apollo';
 
 interface Props {
@@ -14,14 +14,14 @@ const SlugEditPage: NextPage<Props> = ({ slug }) => {
 		variables: { slug: `${slug}` }
 	});
 	if (loading) return <Spinner01 />;
-	console.log(data.paintBySlug)
+	console.log(data.wearBySlug)
 	return (
 		<Layout
 			title='{`${product.title}`}'
 			pageDescription='{`${product.description}`}'
 			imageFullUrl='{`${product.image[1]}`}'
 		>
-      <FormEdit product={data.paintBySlug}/>
+      <FormEdit product={data.wearBySlug}/>
 		</Layout>
 	);
 };
@@ -41,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 		query: PRODUCTS
 	});
 
-	const paths = data.paints.map((data: IProduct) => ({
+	const paths = data.wears.map((data: IWear) => ({
 		params: { slug: data.slug }
 	}));
 	// console.log(paths)

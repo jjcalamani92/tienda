@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<SWRConfig
 				value={{
 					fetcher: query => request(`${process.env.APIS_URL}/graphql`, query),
-					refreshInterval: 3000
+					refreshInterval: 300000
 				}}
 			>
 				<ApolloProvider client={ client }>

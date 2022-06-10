@@ -18,8 +18,8 @@ import { Fragment, useContext, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCarAlt, faCartShopping, faSearch, faBars, faX, faRightToBracket, faArrowRightToBracket, faRightFromBracket, faFolder, faChartLine, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
-import { AuthContext } from "../src/context";
+import { faCarAlt, faCartShopping, faSearch, faBars, faX, faRightToBracket, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { AuthContext } from "../../src/context";
 
 const navigation = {
 	categories: [
@@ -28,65 +28,58 @@ const navigation = {
 			name: "Tienda",
 			featured: [
 				{
-					name: "De fabrica",
+					name: "Los recién llegados",
 					href: "#",
 					imageSrc:
-						"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1651761142/pinturas/productos/poliuretano/181103052847z4_7500_x6krkq.png",
+						"https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
 					imageAlt:
 						"Models sitting back to back, wearing Basic Tee in black and bone."
 				},
 				{
-					name: "Productos en oferta",
+					name: "Camisetas básicas",
 					href: "#",
 					imageSrc:
-						"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1651761866/pinturas/productos/poliuretano/200221035708ultra-up-640_r4epkd.jpg",
+						"https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
 					imageAlt:
 						"Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
 				}
 			],
 			sections: [
 				{
-					id: "1",
-					name: "Linea Automotiva",
-					href: "linea-automotiva",
+					id: "mujer",
+					name: "Mujer",
 					items: [
-						{ name: "poliuretano", href: "/linea-automotiva/poliuretano" },
-						{ name: "acrilico", href: "/linea-automotiva/acrilico" },
-						{ name: "gloss", href: "/linea-automotiva/gloss" },
-						{ name: "masilla", href: "/linea-automotiva/masilla" },
-						{ name: "primer", href: "/linea-automotiva/primer" }
+						{ name: "chamarras", href: "/mujer/chamarras" },
+						{ name: "camisas", href: "/mujer/camisas" },
+						{ name: "poleras", href: "/mujer/poleras" },
+						{ name: "Explorar Todo", href: "#" }
 					]
 				},
 				{
-					id: "1",
-					name: "accesorios",
-					href: "accesorios",
+					id: "hombre",
+					name: "Hombre",
 					items: [
-						{ name: "poliuretano", href: "/linea-automotiva/poliuretano" },
-						{ name: "acrilico", href: "/linea-automotiva/acrilico" },
-						{ name: "gloss", href: "/linea-automotiva/gloss" },
-						{ name: "masilla", href: "/linea-automotiva/masilla" },
-						{ name: "primer", href: "/linea-automotiva/primer" }
+						{ name: "chamarras", href: "/hombre/chamarras" },
+						{ name: "camisas", href: "/hombre/camisas" },
+						{ name: "poleras", href: "/hombre/poleras" },
+						{ name: "Explorar Todo", href: "#" }
 					]
 				},
 				{
-					id: "1",
-					name: "marcas",
-					href: "marcas",
+					id: "niño",
+					name: "Niño",
 					items: [
-						{ name: "poliuretano", href: "/linea-automotiva/poliuretano" },
-						{ name: "acrilico", href: "/linea-automotiva/acrilico" },
-						{ name: "gloss", href: "/linea-automotiva/gloss" },
-						{ name: "masilla", href: "/linea-automotiva/masilla" },
-						{ name: "primer", href: "/linea-automotiva/primer" }
+						{ name: "chamarras", href: "/niño/chamarras" },
+						{ name: "camisas", href: "/niño/camisas" },
+						{ name: "poleras", href: "/niño/poleras" },
+						{ name: "Explorar Todo", href: "#" }
 					]
-				},
+				}
 			]
 		}
 	],
 	pages: [
-		// { name: "Categorias", href: "linea-automotiva" },
-		{ name: "Servicios", href: "servicios" },
+		{ name: "Categorias", href: "categorias" },
 		{ name: "Contacto", href: "contacto" }
 	]
 };
@@ -95,7 +88,7 @@ function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ");
 }
 
-export const Header = () => {
+export const HeaderPiccoletti = () => {
 	const { user, isLoggedIn, logout } = useContext(AuthContext);
 	const [open, setOpen] = useState(false);
 
@@ -134,13 +127,10 @@ export const Header = () => {
 										onClick={() => setOpen(false)}
 									>
 										<span className="sr-only">Close menu</span>
-										<a>
-											<FontAwesomeIcon
-												className="h-6 w-6"
-												icon={faX}
-											/>
-										</a>
-
+										<FontAwesomeIcon
+											className="h-6 w-6"
+											icon={faX}
+										/>
 									</button>
 								</div>
 
@@ -154,7 +144,7 @@ export const Header = () => {
 													className={({ selected }) =>
 														classNames(
 															selected
-																? "text-yellow-600 border-yellow-600"
+																? "text-red-600 border-red-600"
 																: "text-gray-900 border-transparent",
 															"flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium capitalize"
 														)
@@ -174,7 +164,7 @@ export const Header = () => {
 												<div className="grid grid-cols-2 gap-x-4">
 													{category.featured.map((item, i) => (
 														<div key={i} className="group relative text-sm">
-															<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75 bg-white">
+															<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
 																<img
 																	src={item.imageSrc}
 																	alt={item.imageAlt}
@@ -182,7 +172,7 @@ export const Header = () => {
 																/>
 															</div>
 															<Link href={item.href} passHref prefetch={false}>
-																<a href="#" className="mt-6 block font-medium text-gray-900">
+																<a className="mt-6 block font-medium text-gray-900">
 																	<span
 																		className="absolute z-10 inset-0 capitalize"
 																		aria-hidden="true"
@@ -192,22 +182,19 @@ export const Header = () => {
 															</Link>
 
 															<p aria-hidden="true" className="mt-1">
-																Comprar ahora
+																Shop now
 															</p>
 														</div>
 													))}
 												</div>
 												{category.sections.map((section) => (
 													<div key={section.name}>
-														<Link href={`/${section.href}`}>
-															<a
-																id={`${category.id}-${section.id}-heading-mobile`}
-																className="font-medium text-gray-900 capitalize"
-															>
-																{section.name}
-															</a>
-														</Link>
-
+														<p
+															id={`${category.id}-${section.id}-heading-mobile`}
+															className="font-medium text-gray-900"
+														>
+															{section.name}
+														</p>
 														<ul
 															role="list"
 															aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
@@ -220,7 +207,7 @@ export const Header = () => {
 																		passHref
 																		prefetch={false}
 																	>
-																		<a href="#" className="-m-2 p-2 block text-gray-500 capitalize">
+																		<a className="-m-2 p-2 block text-gray-500 capitalize">
 																			{item.name}
 																		</a>
 																	</Link>
@@ -246,7 +233,7 @@ export const Header = () => {
 									))}
 								</div>
 
-								{/* {
+								{
 									isLoggedIn && (
 										<>
 											<div className="border-t border-gray-200 py-6 px-4 space-y-6">
@@ -269,27 +256,21 @@ export const Header = () => {
 
 										<div className="border-t border-gray-200 py-6 px-4 space-y-6">
 											<div className="flow-root">
-												<Link href="/auth/login/">
-													<a className="-m-2 p-2 block font-medium text-gray-900">
-														Panel de Administración
-													</a>
-												</Link>
-
+												<a href="/auth/login" className="-m-2 p-2 block font-medium text-gray-900">
+													Panel de Administración
+												</a>
 											</div>
 										</div>
 									)
-								} */}
+								}
 
-								{/* <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+								<div className="border-t border-gray-200 py-6 px-4 space-y-6">
 
 
 									<div className="flow-root">
-										<Link href="/auth/register">
-											<a className="-m-2 p-2 block font-medium text-gray-900">
-												Register
-											</a>
-										</Link>
-
+										<a href="/auth/register" className="-m-2 p-2 block font-medium text-gray-900">
+											Register
+										</a>
 									</div>
 									{
 										isLoggedIn
@@ -299,21 +280,20 @@ export const Header = () => {
 													Salir
 												</a>
 											</div>
+
 											:
 											<div className="flow-root">
-												<Link href="/auth/login">
-													<a className="-m-2 p-2 block font-medium text-gray-900">
-
-														Login
-													</a>
-												</Link>
+												<a href="/auth/login" className="-m-2 p-2 block font-medium text-gray-900">
+													Login
+												</a>
 											</div>
-									}
-								</div> */}
 
-								{/* <div className="border-t border-gray-200 py-6 px-4">
+									}
+								</div>
+
+								<div className="border-t border-gray-200 py-6 px-4">
 									<Link href="#" passHref prefetch={false}>
-									<a href="#" className="-m-2 p-2 flex items-center">
+										<a className="-m-2 p-2 flex items-center">
 											<img
 												src="https://tailwindui.com/img/flags/flag-canada.svg"
 												alt=""
@@ -325,7 +305,7 @@ export const Header = () => {
 											<span className="sr-only">, change currency</span>
 										</a>
 									</Link>
-								</div> */}
+								</div>
 							</Dialog.Panel>
 						</Transition.Child>
 					</div>
@@ -333,7 +313,7 @@ export const Header = () => {
 			</Transition.Root>
 
 			<header className="relative bg-white">
-				{/* <p className="bg-yellow-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
+				{/* <p className="bg-red-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
 					Get free delivery on orders over $100
 				</p> */}
 
@@ -349,22 +329,20 @@ export const Header = () => {
 								onClick={() => setOpen(true)}
 							>
 								<span className="sr-only">Open menu</span>
-								<a>
-									<FontAwesomeIcon
-										className="h-6 w-6"
-										icon={faBars}
-									/>
-								</a>
+								<FontAwesomeIcon
+									className="h-6 w-6"
+									icon={faBars}
+								/>
 							</button>
 
 							{/* Logo */}
 							<div className="ml-4 flex lg:ml-0">
 								<Link href="/">
-									<a href="#" >
+									<a >
 										<span className="sr-only">Workflow</span>
 										<img
 											className="h-8 w-auto"
-											src="https://res.cloudinary.com/dvcyhn0lj/image/upload/v1649541738/pinturas/PUNTO_COLORS_EXPRESS_CHOCO_yoygoy.png"
+											src="https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg"
 											alt=""
 										/>
 									</a>
@@ -383,7 +361,7 @@ export const Header = () => {
 														<Popover.Button
 															className={classNames(
 																open
-																	? "border-yellow-600 text-yellow-600"
+																	? "border-red-600 text-red-600"
 																	: "border-transparent text-gray-700 hover:text-gray-800",
 																"relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px"
 															)}
@@ -417,7 +395,7 @@ export const Header = () => {
 																					key={i}
 																					className="group relative text-base sm:text-sm"
 																				>
-																					<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75 bg-white">
+																					<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
 																						<img
 																							src={item.imageSrc}
 																							alt={item.imageAlt}
@@ -425,7 +403,7 @@ export const Header = () => {
 																						/>
 																					</div>
 																					<Link href={item.href}>
-																						<a href="#" className="mt-6 block font-medium text-gray-900">
+																						<a className="mt-6 block font-medium text-gray-900">
 																							<span
 																								className="absolute z-10 inset-0"
 																								aria-hidden="true"
@@ -438,7 +416,7 @@ export const Header = () => {
 																						aria-hidden="true"
 																						className="mt-1"
 																					>
-																						Comprar ahora
+																						Shop now
 																					</p>
 																				</div>
 																			))}
@@ -446,14 +424,12 @@ export const Header = () => {
 																		<div className="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-sm">
 																			{category.sections.map((section, i) => (
 																				<div key={i}>
-																					<Link href={`/${section.href}`}>
-																						<a
-																							id={`${section.name}-heading`}
-																							className="font-medium text-gray-900 capitalize"
-																						>
-																							{section.name}
-																						</a>
-																					</Link>
+																					<p
+																						id={`${section.name}-heading`}
+																						className="font-medium text-gray-900"
+																					>
+																						{section.name}
+																					</p>
 																					<ul
 																						role="list"
 																						aria-labelledby={`${section.name}-heading`}
@@ -465,7 +441,7 @@ export const Header = () => {
 																								className="flex"
 																							>
 																								<Link href={`/${item.href}`}>
-																									<a href="#" className="hover:text-gray-800 capitalize">
+																									<a className="hover:text-gray-800 capitalize">
 																										{item.name}
 																									</a>
 																								</Link>
@@ -487,7 +463,7 @@ export const Header = () => {
 
 									{navigation.pages.map((page, i) => (
 										<Link href={`/${page.href}`} key={i}>
-											<a href="#" className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
+											<a className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
 												{page.name}
 											</a>
 										</Link>
@@ -519,7 +495,7 @@ export const Header = () => {
                 </div> */}
 
 								{/* Search */}
-								{/* {
+								{
 									isLoggedIn
 										?
 										<div className="lg:ml-2 hidden lg:flex">
@@ -543,10 +519,10 @@ export const Header = () => {
 											</a>
 										</div>
 
-								} */}
+								}
 
 
-								{/* <div className="flex lg:ml-2">
+								<div className="flex lg:ml-2">
 									<a href="#" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
 										<span className="sr-only">Search</span>
 										<FontAwesomeIcon
@@ -554,59 +530,10 @@ export const Header = () => {
 											icon={faSearch}
 										/>
 									</a>
-								</div> */}
-								{
-									isLoggedIn
-										?
-										<>
-										{
-									user?.role === 'ADMIN_ROL' && (
-
-										<Link href="/admin">
-												<div className="flex lg:ml-2">
-												<a className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
-													<span className="sr-only">Admin</span>
-													<FontAwesomeIcon
-														className="w-6 h-6"
-														icon={faFolderOpen}
-													/>
-												</a>
-											</div>
-											</Link>
-									)
-								}
-											
-
-											<div className="flex lg:ml-2" onClick={logout}>
-											<a className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
-												<span className="sr-only">Logout</span>
-												<FontAwesomeIcon
-													className="w-6 h-6"
-													icon={faRightFromBracket}
-												/>
-											</a>
-										</div>
-										</>
-
-										:
-										<Link href="/auth/login">
-													
-													<div className="flex lg:ml-2">
-												<a className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
-													<span className="sr-only">Login</span>
-													<FontAwesomeIcon
-														className="w-6 h-6"
-														icon={faRightToBracket}
-													/>
-												</a>
-											</div>
-												</Link>
-										
-										
-								}
+								</div>
 
 								{/* Cart */}
-								{/* <div className="flow-root lg:ml-2">
+								<div className="flow-root lg:ml-2">
 									<a href="#" className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
 										<FontAwesomeIcon
 											className="w-6 h-6"
@@ -616,8 +543,8 @@ export const Header = () => {
 											0
 										</span>
 										<span className="sr-only">items in cart, view bag</span>
-									</a>	
-								</div> */}
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -626,4 +553,3 @@ export const Header = () => {
 		</div>
 	);
 };
-

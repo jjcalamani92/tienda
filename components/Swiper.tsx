@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination, Thumbs } from "swiper";
 import Image from "next/image";
-import { LayoutHome } from "./LayoutHome";
+import { LayoutHome } from "./home/LayoutHome";
 
 // interface Props {
 // 	products: IProduct[];
