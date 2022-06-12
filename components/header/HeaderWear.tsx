@@ -59,7 +59,7 @@ export const HeaderWear = () => {
                           className={({ selected }) =>
                             classNames(
                               selected ? 'text-red-600 border-red-600' : 'text-gray-900 border-transparent',
-                              'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                              'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium capitalize'
                             )
                           }
                         >
@@ -77,7 +77,7 @@ export const HeaderWear = () => {
                               <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
                                 <img src={item.imageSrc} alt={item.imageAlt} className="object-center object-cover" />
                               </div>
-                              <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                              <a href={item.href} className="mt-6 block font-medium text-gray-900 capitalize">
                                 <span className="absolute z-10 inset-0" aria-hidden="true" />
                                 {item.name}
                               </a>
@@ -87,19 +87,18 @@ export const HeaderWear = () => {
                             </div>
                           ))}
                         </div>
-                        {category.sections.map((section) => (
-                          <div key={section.name}>
-                            <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
+                        {category.sections.map((section,i) => (
+                          <div key={i}>
+                            <p className="font-medium text-gray-900 capitalize">
                               {section.name}
                             </p>
                             <ul
                               role="list"
-                              aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                              className="mt-6 flex flex-col space-y-6"
+                              className="mt-6 flex flex-col space-y-6 capitalize"
                             >
-                              {section.items.map((item) => (
-                                <li key={item.name} className="flow-root">
-                                  <a href={item.href} className="-m-2 p-2 block text-gray-500">
+                              {section.items.map((item, i) => (
+                                <li key={i} className="flow-root">
+                                  <a href={`/${category.href}/${section.href}/${item.href}`} className="-m-2 p-2 block text-gray-500">
                                     {item.name}
                                   </a>
                                 </li>
@@ -125,17 +124,22 @@ export const HeaderWear = () => {
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                   <div className="flow-root">
                     <a href="#" className="-m-2 p-2 block font-medium text-gray-900">
-                      Sign in
+                      Login
                     </a>
                   </div>
                   <div className="flow-root">
                     <a href="#" className="-m-2 p-2 block font-medium text-gray-900">
-                      Create account
+                      Register
+                    </a>
+                  </div>
+                  <div className="flow-root">
+                    <a href="#" className="-m-2 p-2 block font-medium text-gray-900">
+                      Salir
                     </a>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 py-6 px-4">
+                {/* <div className="border-t border-gray-200 py-6 px-4">
                   <a href="#" className="-m-2 p-2 flex items-center">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
@@ -145,7 +149,7 @@ export const HeaderWear = () => {
                     <span className="ml-3 block text-base font-medium text-gray-900">CAD</span>
                     <span className="sr-only">, change currency</span>
                   </a>
-                </div>
+                </div> */}
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -194,7 +198,7 @@ export const HeaderWear = () => {
                                 open
                                   ? 'border-red-600 text-red-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
-                                'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px capitalize'
                               )}
                             >
                               {category.name}
@@ -227,20 +231,20 @@ export const HeaderWear = () => {
                                               className="object-center object-cover"
                                             />
                                           </div>
-                                          <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                                          <a href={item.href} className="mt-6 block font-medium text-gray-900 capitalize">
                                             <span className="absolute z-10 inset-0" aria-hidden="true" />
                                             {item.name}
                                           </a>
-                                          <p aria-hidden="true" className="mt-1">
+                                          <p aria-hidden="true" className="mt-1 capitalize">
                                             Shop now
                                           </p>
                                         </div>
                                       ))}
                                     </div>
                                     <div className="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-sm">
-                                      {category.sections.map((section) => (
-                                        <div key={section.name}>
-                                          <p id={`${section.name}-heading`} className="font-medium text-gray-900">
+                                      {category.sections.map((section, i) => (
+                                        <div key={i}>
+                                          <p className="font-medium text-gray-900 capitalize">
                                             {section.name}
                                           </p>
                                           <ul
@@ -248,9 +252,10 @@ export const HeaderWear = () => {
                                             aria-labelledby={`${section.name}-heading`}
                                             className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                           >
-                                            {section.items.map((item) => (
-                                              <li key={item.name} className="flex">
-                                                <a href={item.href} className="hover:text-gray-800">
+                                            {section.items.map((item, i) => (
+                                              <li key={i} className="flex">
+                                                <a href={`/${category.href}/${section.href}/${item.href}`} className="hover:text-gray-800 capitalize">
+                                                  
                                                   {item.name}
                                                 </a>
                                               </li>
@@ -269,11 +274,11 @@ export const HeaderWear = () => {
                     </Popover>
                   ))}
 
-                  {site.pages.map((page) => (
+                  {site.pages.map((page, i) => (
                     <a
-                      key={page.name}
+                      key={i}
                       href={page.href}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
                     >
                       {page.name}
                     </a>
@@ -284,15 +289,15 @@ export const HeaderWear = () => {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Sign in
+                    Login
                   </a>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Create account
+                    Register
                   </a>
                 </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
+                {/* <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="text-gray-700 hover:text-gray-800 flex items-center">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
@@ -302,7 +307,7 @@ export const HeaderWear = () => {
                     <span className="ml-3 block text-sm font-medium">CAD</span>
                     <span className="sr-only">, change currency</span>
                   </a>
-                </div>
+                </div> */}
 
                 {/* Search */}
                 <div className="flex lg:ml-6">

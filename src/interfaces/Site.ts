@@ -1,5 +1,7 @@
+import { ObjectId } from "mongoose";
+
 export interface Site {
-  _id?: string;
+  _id: string;
   title: string;
   domain: string;
   logo: string;
@@ -12,7 +14,7 @@ export interface Site {
 }
 
 export interface Category {
-  id?: string;
+  _id?: string;
   name: string;
   href?: string;
   description?: string;
@@ -23,23 +25,29 @@ export interface Category {
 }
 
 export interface Featured {
+  _id?: string;
   category?: string;
   name: string;
   href: string;
+  description: string;
   imageSrc: string;
   imageAlt: string;
 }
 
 export interface Section {
-  id?: string;
+  _id?: string;
   category?: string;
   section?: string;
   name: string;
   href?: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
   items: Item[];
 }
 
 export interface Item {
+  _id?: string;
   category?: string;
   section?: string;
   description?: string;
@@ -50,6 +58,7 @@ export interface Item {
 }
 
 export interface Page {
+  _id?: string;
   category?: string;
   section?: string;
   name: string;

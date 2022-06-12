@@ -2,16 +2,16 @@ import Link from "next/link";
 import React, {Component} from "react";
 
 interface Heading01Props {
-  line: string
-  category?: string
-  name?: string
+  category: string
+  section?: string
+  item?: string
 }
 
 
 
 class Heading01 extends React.Component<Heading01Props> {
   render() {
-    const { line, category, name} = this.props
+    const { category, section, item} = this.props
     return (<nav aria-label="Breadcrumb" className=" py-2 md:py-6">
       <ol
         role="list"
@@ -19,9 +19,9 @@ class Heading01 extends React.Component<Heading01Props> {
       >
         <li>
           <div className="flex items-center">
-            <Link href={`/${line}`} passHref prefetch={false}>
+            <Link href={`/${category}`} passHref prefetch={false}>
               <a href="#" className="mr-2 text-sm font-medium text-gray-900 capitalize">
-                {line}
+                {category}
               </a>
             </Link>
 
@@ -29,7 +29,7 @@ class Heading01 extends React.Component<Heading01Props> {
           </div>
         </li>
         {
-          this.props.category 
+          this.props.section 
           ? 
         <li>
           <div className="flex items-center">
@@ -45,12 +45,12 @@ class Heading01 extends React.Component<Heading01Props> {
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
             <Link
-              href={`/${line}/${category}`}
+              href={`/${category}/${section}`}
               passHref
               prefetch={false}
             >
               <a href="#" className="mr-2 text-sm font-medium text-gray-900 capitalize">
-                {category}
+                {section}
               </a>
             </Link>
           
@@ -60,7 +60,7 @@ class Heading01 extends React.Component<Heading01Props> {
         null
         }
         {
-          this.props.name 
+          this.props.item 
           ? 
         <li>
           <div className="flex items-center">
@@ -76,12 +76,12 @@ class Heading01 extends React.Component<Heading01Props> {
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
             <Link
-              href={`/detalles/${name}`}
+              href={`/detalles/${item}`}
               passHref
               prefetch={false}
             >
               <a href="#" className="mr-2 text-sm font-medium text-gray-900 capitalize">
-                {name}
+                {item}
               </a>
             </Link>
           

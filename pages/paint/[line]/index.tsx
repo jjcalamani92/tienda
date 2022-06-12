@@ -3,15 +3,15 @@ import {
 	Layout,
 	LayoutProductlist,
 	Spinner01
-} from "../../components";
-import { Site } from "../../src/interfaces";
-import { SITEBYCATEGORY } from "../../src/gql/query";
-import { clientSite } from "../../src/apollo";
-import { Category, Section } from "../../src/interfaces/Site";
+} from "../../../components";
+import { Site } from "../../../src/interfaces";
+import { SITEBYCATEGORY } from "../../../src/gql/query";
+import { clientSite } from "../../../src/apollo";
+import { Category, Section } from "../../../src/interfaces/Site";
 import { request, RequestDocument } from "graphql-request";
 import useSWR from "swr";
-import { useProduct } from "../../src/swr/graphqlClient";
-import Heading01 from "../../components/Heading/Heading";
+import { useProduct } from "../../../src/swr/graphqlClient";
+import Heading01 from "../../../components/Heading/Heading";
 // require('dotenv').config()
 const API_ENDPOINT = `${process.env.APIS_URL}/graphql`
 

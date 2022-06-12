@@ -1,15 +1,15 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { Layout, LayoutProductlist, Spinner01 } from "../../../components";
+import { Layout, LayoutProductlist, Spinner01 } from "../../../../components";
 import { useRouter } from "next/router";
-import { IProduct } from "../../../src/interfaces";
+import { IProduct } from "../../../../src/interfaces";
 import { useQuery } from "@apollo/client";
 import {
   PRODUCTS,
   PRODUCTS_BY_LINE_AND_BY_CATEGORY,
-} from "../../../src/gql/query";
-import { client } from "../../../src/apollo";
-import { LayoutProductlist01 } from "../../../components/LayoutProductList01";
-import Heading01 from "../../../components/Heading/Heading";
+} from "../../../../src/gql/query";
+import { client } from "../../../../src/apollo";
+import { LayoutProductlist01 } from "../../../../components/LayoutProductList01";
+import Heading01 from "../../../../components/Heading/Heading";
 import React, { Component } from "react";
 
 
