@@ -6,7 +6,7 @@ import {
 } from "../../components";
 import { IClothing, IProduct, Site } from "../../src/interfaces";
 import { CATEGORY, PRODUCTS, PRODUCTS_BY_GENDER, SITEBYITEM, SITEBYSECTION, SITES } from "../../src/gql/clothing/query";
-import { client, clientSite } from "../../src/apollo";
+import { client } from "../../src/apollo";
 import { Category, Section, Item, Featured } from '../../src/interfaces/Site';
 import { request, RequestDocument } from "graphql-request";
 import useSWR from "swr";

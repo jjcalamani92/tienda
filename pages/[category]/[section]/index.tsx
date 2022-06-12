@@ -8,7 +8,7 @@ import {
   PRODUCTS_BY_GENDER_AND_BY_CATEGORY,
   SITEBYITEM,
 } from "../../../src/gql/clothing/query";
-import { client, clientSite } from "../../../src/apollo";
+import { client } from "../../../src/apollo";
 import { LayoutProductlist01 } from "../../../components/LayoutProductList01";
 import Heading01 from "../../../components/Heading/Heading";
 import React, { Component } from "react";
