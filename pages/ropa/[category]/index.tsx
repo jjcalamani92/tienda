@@ -47,7 +47,7 @@ const CategoryPage: NextPage<Props> = ({ category }) => {
 			title={"Choco - Stores"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-      <Heading01 line={`${router.query.category}`} />
+      {/* <Heading01 line={`${router.query.category}`} /> */}
 
 			{/* <Heading04 category={gender} /> */}
 			{/* <HeadingSecondary category={category} /> */}

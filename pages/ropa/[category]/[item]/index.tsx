@@ -30,7 +30,7 @@ const ItemPage = () => {
       title={"Choco - Stores"}
       pageDescription={"Encuentra tu ropa favorita"}
     >
-      <Heading01 line={`${category}`} category={`${item}`} />
+      {/* <Heading01 line={`${category}`} category={`${item}`} /> */}
       <LayoutProductlist01 products={data.wearByGenderAndCategory} />
     </Layout>
     </>
