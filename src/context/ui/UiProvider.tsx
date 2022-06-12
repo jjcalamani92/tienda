@@ -59,7 +59,7 @@ const UI_INITIAL_STATE: UiState = {
 			},
 		],
 		pages: [
-			{ name: 'Company', href: '#' },
+			{ name: 'Company', href: '/' },
 		],
 	}
 };
