@@ -5,8 +5,8 @@ import {
 	ProductOverviews05
 } from "../../components";
 import { useQuery } from "@apollo/client";
-import { IProduct, IWear } from "../../src/interfaces";
-import { PRODUCTS, PRODUCT_BY_SLUG } from "../../src/gql/wear/query";
+import { IClothing, IProduct, IWear } from "../../src/interfaces";
+import { CLOTHINGS, PRODUCTS, PRODUCT_BY_SLUG } from "../../src/gql/clothing/query";
 import { client } from "../../src/apollo";
 import Heading01 from "../../components/Heading/Heading";
 
@@ -17,18 +17,18 @@ interface SlugPage {
 const SlugPage: NextPage<SlugPage> = ({ slug }) => {
 
 	const { loading, error, data } = useQuery(PRODUCT_BY_SLUG, {
-		variables: { slug: `${slug}` }
+		variables: { slug: `${slug}`, site: process.env.API_SITE }
 	});
 	if (loading) return <Spinner01 />;
-	// console.log(slug)
+	console.log(data.clothingBySlug)
 	return (
 		<Layout
 			title={"Choco - Stores"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-      <Heading01 line={`${data.wearBySlug.gender}`} category={`${data.wearBySlug.category}`} name={`${data.wearBySlug.name}`}/>
+      <Heading01 category={`${data.clothingBySlug.gender}`} section={`${data.clothingBySlug.category}`} item={`${data.clothingBySlug.name}`}/>
 			
-			<ProductOverviews05 product={data.wearBySlug} />
+			<ProductOverviews05 product={data.clothingBySlug} />
 
 		</Layout>
 	);
@@ -45,12 +45,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 	const { data } = await client.query({
-		query: PRODUCTS
+		query: CLOTHINGS
 	});
-
-	const paths = data.wears.map((data: IWear) => ({
+	const paths = data.clothings.map((data: IClothing) => ({
 		params: { slug: data.slug }
 	}));
+	console.log(paths)
 	return {
 		paths,
 		fallback: "blocking"

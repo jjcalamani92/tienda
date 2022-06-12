@@ -111,9 +111,9 @@ export const ITEM = gql`
 	}
 `;
 
-export const PRODUCT_UPDATE = gql`
-	query Wears {
-		Wears {
+export const CLOTHINGS = gql`
+	query Clothings {
+		clothings {
 			_id
 			name
 			brand
@@ -121,10 +121,12 @@ export const PRODUCT_UPDATE = gql`
 			image
 			inStock
 			slug
-			line
+			section
+			item
 			category
 			price
 			tags
+			site
 		}
 	}
 `;
@@ -177,8 +179,8 @@ export const PRODUCTS_BY_GENDER_AND_BY_CATEGORY = gql`
 `;
 
 export const PRODUCT_BY_SLUG = gql`
-	query WearBySlug($slug: String!) {
-		wearBySlug(slug: $slug) {
+	query ClothingBySlug($slug: String!, $site: String!) {
+		clothingBySlug(slug: $slug, site: $site) {
 			_id
 			name
 			brand
@@ -187,13 +189,15 @@ export const PRODUCT_BY_SLUG = gql`
 			inStock
 			slug
 			category
-			gender
+			section
+			item
 			price
 			oldPrice
 			tags
 		}
 	}
 `;
+
 export const PRODUCT_ALL = gql`
 	query WearsAll($limit: Float!, $offset:Float!) {
 		wearsAll(listWearsInput:  { limit: $limit, offset: $offset}) {
