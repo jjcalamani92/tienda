@@ -50,7 +50,7 @@ const LinePage: NextPage<Props> = ({ line }) => {
 			title={"Choco - Stores"}
 			pageDescription={"Encuentra tu ropa favorita"}
 		>
-      <Heading01 line={`${line}`} />
+      {/* <Heading01 line={`${line}`} /> */}
 			<LayoutProductlist products={section.items} />
 		</Layout>
 	);

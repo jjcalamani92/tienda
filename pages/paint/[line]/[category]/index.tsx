@@ -28,7 +28,7 @@ const CategoryPage = () => {
       title={"Choco - Stores"}
       pageDescription={"Encuentra tu ropa favorita"}
     >
-      <Heading01 line={`${line}`} category={`${category}`} />
+      {/* <Heading01 line={`${line}`} category={`${category}`} /> */}
       <LayoutProductlist01 products={data.paintByLineAndCategory} />
     </Layout>
     </>
