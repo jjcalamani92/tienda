@@ -1,3 +1,11 @@
+import React from 'react'
+
+export const SlugClothing = () => {
+  return (
+    <div>SlugClothing</div>
+  )
+}
+
 // import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 // import {
 // 	Layout,
