@@ -3,7 +3,6 @@ require('dotenv').config();
 const nextConfig = {
 	reactStrictMode: true,
 	env: {
-		API_USER: process.env.API_USER,
 		API_SITE: process.env.API_SITE,
 		APIU_URL: process.env.APIU_URL,
 		APIS_URL: process.env.APIS_URL,

@@ -42,7 +42,7 @@ const CategoryPage= () => {
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
   const { data } = await client.query({
 		query: CATEGORY,
-    variables: { site: `${process.env.API_USER}`},
+    variables: { site: `${process.env.API_SITE}`},
 	});
 	const paths = data.clothingAll.map((data:IClothing) => ({
     params: { category: data.category}
